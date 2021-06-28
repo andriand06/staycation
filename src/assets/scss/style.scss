@@ -43,10 +43,58 @@
 @import "carousel";
 @import "spinners";
 @import "offcanvas";
-
 // Helpers
 @import "helpers";
 
 // Utilities
 @import "utilities/api";
 // scss-docs-end import-stack
+
+.brand-text-icons {
+    font-size: 26px;
+    font-weight : 500;
+    font-family: "Poppins", sans-serif;
+    text-decoration: none;
+    color: $primary;
+    &:hover {
+        text-decoration : none;
+        color: $primary; 
+    }
+    
+}
+.text-gray-900 {
+    color: $dark;
+}
+.ml-auto {
+    margin-left: auto;
+}
+
+header {
+    border-bottom: 1px solid $gray-200;
+    width: 100%;
+    position: relative;
+
+    .navbar {
+        height: 80px;
+        
+        ul.navbar-nav {
+            li.nav-item {
+                &.active {
+                    a.nav-link {
+                        color : $primary;
+                    }
+                }
+                a {
+                    &.nav-link{
+                        color: $gray-900;
+                        padding-left: 1rem;
+                        padding-right: 1rem;
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
