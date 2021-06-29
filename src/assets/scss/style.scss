@@ -50,6 +50,9 @@
 @import "utilities/api";
 // scss-docs-end import-stack
 
+.font-weight-bold {
+    font-weight: $font-weight-bold;
+}
 .brand-text-icons {
     font-size: 26px;
     font-weight : 500;
@@ -62,6 +65,15 @@
     }
     
 }
+.image-hero {
+    margin-top: 70px;
+    max-width: 100%;
+    width: 560px;
+    height: 450px;
+    position: relative;
+    left: 200px;
+
+}
 .text-gray-900 {
     color: $dark;
 }
@@ -73,7 +85,7 @@ header {
     border-bottom: 1px solid $gray-200;
     width: 100%;
     position: relative;
-
+    margin-bottom: 10px;
     .navbar {
         height: 80px;
         
