@@ -3,8 +3,9 @@ import Button from 'elements/Button'
 import Fade from 'react-reveal/Fade';
 export default function MostPicked(props) {
     return (
-        <Fade>
+        
         <section className="container" ref={props.refMostPicked}>
+            <Fade>
             <h4 className="mb-5">Most Picked</h4>
                 <div className="container-grid">
                     {props.data.map((item, index) => {
@@ -32,7 +33,8 @@ export default function MostPicked(props) {
                     );})}
                   
                 </div>
+                </Fade>
         </section>
-        </Fade>
+        
     );
 }
