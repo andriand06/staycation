@@ -91,8 +91,11 @@ section {
 }
 
 .card {
-    height: 100%;
-        
+    
+    &.bordered {
+        border: 1px solid $gray-200;
+    }
+    border-radius: $border-radius;
     .tag {
         z-index: 3;
         font-size: 0.875rem;
@@ -112,6 +115,7 @@ section {
         margin-bottom: 0;
         border: 0.9375rem;
         overflow: hidden;
+        border-radius: 0.3125rem;
     }
     .meta-wrapper {
            
@@ -182,6 +186,10 @@ section {
 }
 .text-white{
     text-decoration: none;
+}
+.text-gray-400{
+    color: $gray-400;
+    text-decoration: none;
 }  
 .text-gray-500{
     color: $gray-500;
@@ -194,6 +202,15 @@ section {
 .text-gray-900 {
     color: $dark;
     text-decoration: none;
+}
+.text-teal {
+    color: $teal;
+}
+main {
+    p{
+        color: $gray-500;
+        font-weight: 300;
+    }
 }
 .ml-auto {
     margin-left: auto;
