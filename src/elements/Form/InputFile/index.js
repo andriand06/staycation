@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import propTypes from 'prop-types'
 import "./index.scss"
-export default function Text(props) {
+export default function File(props) {
     const {
         value,
         placeholder,
@@ -14,31 +14,8 @@ export default function Text(props) {
 
     } = props;
 
-    const [ hasError , setHasError] = useState(null);
-    let pattern = "";
-    //"Regex Email /^[/w]+\@[/w]+\.[/w}+$/"
-    if (type === "email") pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (type === "tel") pattern = "[0-9]*";
-
-    const onChange = (e) => {
-        const target = {
-            target : {
-                name : name,
-                value : e.target.value,
-            },
-        };
-
-        if ( type === "email") {
-            if(!pattern.test(e.target.value)) setHasError(errorResponse);
-            else setHasError("");
-        }
-
-        if(type === "tel") {
-            if(e.target.validity.valid) props.onChange(target);
-        } else {
-            props.onChange(target);
-        }
-    };
+    const refInputFile = useRef(null);
+   
     return (
         <div className={["input-text mb-3",outerClassName].join(" ")}>
             <div className="input-group">
@@ -47,7 +24,8 @@ export default function Text(props) {
                         <span className="input-group-text">{prepend}</span>
                     </div>
                 )}
-                <input name={name} type={type} value={value} placeholder={placeholder} pattern={pattern} className={["form-control",inputClassName].join(" ")} onChange={onChange} />
+                <input name={name} accept={accept} className="d-none" type="file" ref={refInputFile} value={value} onChange={props.onChange} />
+                <input defaultValue={value} placeholder={placeholder} onClick={() => refInputFile.current.click()} className={["form-control",inputClassName].join(" ")} />
                 {append && (
                     <div className="input-group-append bg-gray-900">
                         <span className="input-group-text">
@@ -61,20 +39,18 @@ export default function Text(props) {
     );
 }
 
-type : "text",
 Text.defaultProps = {
-    pattern : "",
-    placeholder : "Please type here...",
-    errorResponse : "Please match the requested format."
-};
-
+   
+    placeholder : "Browse a file...",
+   
+}
 Text.propTypes = {
     name : propTypes.string.isRequired,
-    value : propTypes.oneOfType([propTypes.number,propTypes.string]).isRequired,
+    accept : propTypes.string.isRequired,
+    value : propTypes.propTypes.string.isRequired,
     onChange : propTypes.func.isRequired,
     prepend : propTypes.oneOfType([propTypes.number,propTypes.string]),
     append : propTypes.oneOfType([propTypes.number,propTypes.string]),
-    type : propTypes.string,
     placeholder : propTypes.string,
     outerClassName : propTypes.string,
     inputClassName : propTypes.string 

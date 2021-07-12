@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 import propTypes from "prop-types";
 
 import Button from "elements/Button";
-import  InputNumber from "elements/Form/InputNumber";
+import InputNumber from "elements/Form/InputNumber";
 import  InputDate from "elements/Form/InputDate";
 
 
@@ -31,7 +31,7 @@ class BookingForm extends Component {
         [e.target.name]: e.target.value,
       },
     });
-  };
+  };  
 
   componentDidUpdate(prevProps, prevState) {
     const { data } = this.state;
