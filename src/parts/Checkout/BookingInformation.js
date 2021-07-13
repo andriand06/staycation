@@ -12,13 +12,13 @@ export default function BookingInformation(props) {
                     <Fade delay={300}>
                         <div className="card">
                             <figure className="img-wrapper" style={{height:270}}>
-                                <img src={ItemDetails.imageUrls[0].url} alt={ItemDetails.name} className="img-cover" />
+                                <img src={ItemDetails.imageUrls[0].url} alt={ItemDetails.title} className="img-cover" />
                             </figure>
                             <div className="row align-items-center">
                                 <div className="col">
                                     <div className="meta-wrapper">
                                         <h5 className="text-gray-500">
-                                            {ItemDetails.name}
+                                            {ItemDetails.title}
                                         </h5>
                                         <span className="text-gray-500">
                                             {ItemDetails.city},{ItemDetails.country}

@@ -81,7 +81,7 @@ class BookingForm extends Component {
 
   render() {
     const { data } = this.state;
-    const { itemDetails } = this.props;
+    const { itemDetails , startBooking } = this.props;
 
     return (
       <div className="card bordered" style={{ padding: "60px 80px" }}>
@@ -126,7 +126,7 @@ class BookingForm extends Component {
           isPrimary
           isBlock
           type="link"
-          onClick={this.startBooking}
+          onClick={startBooking}
         >
           Continue to Book
         </Button>
