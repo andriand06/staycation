@@ -64,7 +64,7 @@ class BookingForm extends Component {
         },
       });
     }
-  }
+  } 
 
   startBooking = () => {
     const { data } = this.state;

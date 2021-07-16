@@ -9,18 +9,22 @@ import Completed from 'parts/Checkout/Completed'
 
 import ItemDetails from 'json/itemDetails'
 
-export default class Checkout extends Component {
-    state = {
-        data : {
-            firstName : "",
-            lastName : "",
-            email : "",
-            phone : "",
-            proofPayment : "",
-            bankName : "",
-            bankHolder : "",
-        },
-    };
+export default class Checkout extends Component {   
+    constructor(props) {
+        super(props);
+        this.state = {
+            data : {
+                firstName : "",
+                lastName : "",
+                email : "",
+                phone : "",
+                proofPayment : "",
+                bankName : "",
+                bankHolder : "",
+            },
+        };
+    }
+   
     onChange = (e) => {
         this.setState({
             data : {
