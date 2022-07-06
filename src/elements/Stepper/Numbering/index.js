@@ -2,18 +2,18 @@ import React from "react";
 
 import Fade from "react-reveal/Fade";
 
-import propTypes from "prop-types";
+import PropTypes from "prop-types";
 
 import "./index.scss";
 
 export default function Numbering({ style, className, data, current }) {
-  const KeysOfData = Object.keys(data);
+  const keysOfData = Object.keys(data);
   return (
     <Fade>
       <ol className={["stepper", className].join(" ")} style={style}>
-        {KeysOfData.map((list, index) => {
+        {keysOfData.map((list, index) => {
           let isActive = list === current ? "active" : "";
-          if (index + 1 === KeysOfData.length) {
+          if (index + 1 === keysOfData.length) {
             isActive = "";
             return null;
           }
@@ -30,7 +30,7 @@ export default function Numbering({ style, className, data, current }) {
 }
 
 Numbering.propTypes = {
-  className: propTypes.string,
-  data: propTypes.object,
-  current: propTypes.string,
+  className: PropTypes.string,
+  data: PropTypes.object,
+  current: PropTypes.string,
 };
