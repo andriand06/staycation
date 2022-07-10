@@ -6,7 +6,6 @@ import MostPicked from "parts/MostPicked";
 import Categories from "parts/Categories";
 import Testimony from "parts/Testimony";
 import Footer from "parts/Footer";
-import Counter from "features/counter/Counter";
 import { Spinner } from "elements/Spinner";
 import NotFound from "./NotFound";
 const LandingPage = ({ ...props }) => {
@@ -27,7 +26,6 @@ const LandingPage = ({ ...props }) => {
   } else if (isSuccess) {
     content = (
       <>
-        <Counter />
         <Hero refMostPicked={ref} data={landingPage.hero} />
         <MostPicked refMostPicked={ref} data={landingPage.mostPicked} />
         <Categories data={landingPage.categoryId}></Categories>

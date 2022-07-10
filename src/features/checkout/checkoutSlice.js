@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import formatDate from "../../utils/formatDate";
+import { format } from "date-fns";
 export const checkoutSlicer = createSlice({
   name: "checkout",
   initialState: {
@@ -8,8 +8,8 @@ export const checkoutSlicer = createSlice({
         _id: null,
         duration: 1,
         date: {
-          startDate: formatDate(new Date()),
-          endDate: formatDate(new Date()),
+          startDate: format(new Date(), "dd MMM yyyy"),
+          endDate: format(new Date(), "dd MMM yyyy"),
           key: "selection",
         },
       },

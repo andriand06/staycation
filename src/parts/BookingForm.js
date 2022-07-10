@@ -11,6 +11,7 @@ import {
 import { addDays } from "date-fns/esm";
 import InputText from "elements/Form/InputText";
 import formatDate from "utils/formatDate";
+import { format } from "date-fns";
 const BookingForm = ({ itemDetails, startBooking, history }) => {
   const checkout = useSelector(getCheckouts);
   const dispatch = useDispatch();
@@ -27,8 +28,8 @@ const BookingForm = ({ itemDetails, startBooking, history }) => {
         _id: itemDetails._id,
         duration: countDuration,
         date: {
-          startDate: formatDate(startDate),
-          endDate: formatDate(endDate),
+          startDate: format(startDate, "dd MMM yyyy"),
+          endDate: format(endDate, "dd MMM yyyy"),
         },
       };
     } else if (name === "duration") {
@@ -39,8 +40,8 @@ const BookingForm = ({ itemDetails, startBooking, history }) => {
         _id: itemDetails._id,
         duration: duration,
         date: {
-          startDate: formatDate(startDate),
-          endDate: formatDate(endDate),
+          startDate: format(startDate, "dd MMM yyyy"),
+          endDate: format(endDate, "dd MMM yyyy"),
         },
       };
     }

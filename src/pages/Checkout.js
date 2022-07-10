@@ -13,13 +13,10 @@ import Stepper, {
 import BookingInformation from "parts/Checkout/BookingInformation";
 import Payment from "parts/Checkout/Payment";
 import Completed from "parts/Checkout/Completed";
-import {
-  useGetDetailPageQuery,
-  useAddNewBookingMutation,
-} from "features/api/apiSlice";
+import { useAddNewBookingMutation } from "features/api/apiSlice";
+import { useGetDetailPageQuery } from "features/detailPage/detailPageSlice";
 import { Spinner } from "elements/Spinner";
 import NotFound from "./NotFound";
-import { format } from "date-fns";
 
 const Checkout = ({ match }) => {
   const { id } = match.params;
@@ -136,17 +133,16 @@ const Checkout = ({ match }) => {
                         isPrimary
                         hasShadow
                         onClick={async () => {
-                          nextStep();
                           const payload = new FormData();
                           payload.append("idItem", detailPage._id);
                           payload.append("duration", checkout.data.duration);
                           payload.append(
                             "bookingStartDate",
-                            format(checkout.data.date.startDate, "dd MON yyyy")
+                            checkout.data.date.startDate
                           );
                           payload.append(
                             "bookingEndDate",
-                            format(checkout.data.date.endDate, "dd MON yyyy")
+                            checkout.data.date.endDate
                           );
                           payload.append("firstName", data.firstName);
                           payload.append("lastName", data.lastName);
@@ -154,17 +150,12 @@ const Checkout = ({ match }) => {
                           payload.append("phoneNumber", data.phoneNumber);
                           payload.append("accountHolder", data.accountHolder);
                           payload.append("bankFrom", data.bankFrom);
-                          payload.append("image", data.proofPayment);
+                          payload.append("image", data.proofPayment[0]);
                           await addNewBooking(payload)
                             .unwrap()
-                            .then((res) =>
-                              alert(
-                                `Successfully Booking ${JSON.stringify(res)}`
-                              )
-                            )
-                            .catch((err) =>
-                              alert(`Failed to Booking ${JSON.stringify(err)}`)
-                            );
+                            .then((res) => {
+                              nextStep();
+                            });
                         }}
                       >
                         Continue to Book

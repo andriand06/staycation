@@ -16,9 +16,6 @@ export const apiSlice = createApi({
       //the URL for the request is '/fakeApi/landingPage'
       query: () => "/landing-page",
     }),
-    getDetailPage: builder.query({
-      query: (id) => `/detail-page/${id}`,
-    }),
     addNewBooking: builder.mutation({
       query: (initialState) => ({
         url: "/booking-page",
@@ -36,8 +33,4 @@ export const apiSlice = createApi({
  * The name of the endpoint, capitalized
  * The type of the endpoint, Query or Mutation
  */
-export const {
-  useGetLandingPageQuery,
-  useGetDetailPageQuery,
-  useAddNewBookingMutation,
-} = apiSlice;
+export const { useGetLandingPageQuery, useAddNewBookingMutation } = apiSlice;

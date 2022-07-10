@@ -2,7 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import counterReducer from "../features/counter/counterSlice";
 import checkoutReducer from "../features/checkout/checkoutSlice";
 import landingPageReducer from "../features/landingPage/landingPageSlice";
-import detailPageReducer from "../features/detailPage/detailPageSlice";
+import detailPageReducer from "../features/detailPage/detailPageSlice1";
 import { apiSlice } from "features/api/apiSlice";
 //below will create redux store and also automatically configure the redux devtools extension so that we
 //can inspect the store while developing

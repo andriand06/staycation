@@ -9,7 +9,7 @@ import Testimony from "parts/Testimony";
 import Footer from "parts/Footer";
 
 import { Spinner } from "elements/Spinner";
-import { useGetDetailPageQuery } from "features/api/apiSlice";
+import { useGetDetailPageQuery } from "features/detailPage/detailPageSlice";
 import NotFound from "./NotFound";
 const DetailsPage = ({ match, ...props }) => {
   const { id } = match.params;
